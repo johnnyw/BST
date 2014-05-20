@@ -37,12 +37,12 @@ int main(int argc, const char * argv[])
         NSCAssert([[bst max] isEqual:@38], @"Expected max to be 38");
         
         [bst deleteMin];
+        NSCAssert([[bst min] isEqual:@7], @"Expected min to be 7");
+        
         [bst deleteMax];
+        NSCAssert([[bst max] isEqual:@31], @"Expected max to be 31");
         
         keys = [bst allKeys];
-        
-        NSCAssert([[bst min] isEqual:@7], @"Expected min to be 7");
-        NSCAssert([[bst max] isEqual:@31], @"Expected max to be 31");
         
         NSCAssert([[bst floor:@10] isEqual:@8], @"Expected floor:@10 to be 8");
         NSCAssert([[bst ceiling:@35] isEqual:@31], @"Expected ceiling:@35 to be 31");
@@ -52,7 +52,7 @@ int main(int argc, const char * argv[])
         
         for(NSString *key in keys) {
             NSInteger rank = [bst rank:key];
-            NSCAssert([[bst select:rank] isEqual:key], @"Selecting queried rank should yield corresponding key (rank: %li, key: %@", rank, key);
+            NSCAssert([[bst select:rank] isEqual:key], @"Selecting queried rank should yield corresponding key (rank: %li, key: %@)", rank, key);
         }
         
         NSInteger size = [keys count];
