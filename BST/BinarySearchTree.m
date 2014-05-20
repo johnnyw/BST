@@ -81,7 +81,6 @@
 
 - (NSInteger)size
 {
-    NSLog(@"size property being called");
     return [self size:_root];
 }
 
