@@ -64,6 +64,7 @@ int main(int argc, const char * argv[])
         NSCAssert(newSize == size - 1, @"Size should be one less than %li (is actually %li)", size, newSize);
         
         NSCAssert(![keys containsObject:deleteKey], @"Deleted key should no longer be in key set");
+        NSCAssert(![bst objectForKey:deleteKey], @"Deleted key should not return a value");
     }
     return 0;
 }
